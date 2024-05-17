@@ -1,5 +1,5 @@
 [{
   "relation": ["delegate_permission/common.handle_all_urls"],
-  "target" : { "namespace": "android_app", "package_name": "com.finishyourlap.epi",
+  "target" : { "namespace": "android_app", "package_name": "com.example.deep_link_test",
                "sha256_cert_fingerprints": ["BD:CD:8D:3E:82:39:0E:D7:D9:88:18:F6:5B:0A:43:68:73:11:45:B3:C3:FE:F7:9F:C0:E5:E7:B7:A2:DD:C9:81"] }
 }]
