@@ -35,6 +35,15 @@
         }
     </style>
     <script>
+        // detect if safari mobile
+        function isMobileSafari() {
+            return navigator.userAgent.match(/(iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/)
+        }
+        //Launch the element in your app if it's already installed on the phone
+        function LaunchApp(){
+            window.open("epiapp://coruscating-sprite-19aa7b.netlify.app","_self");
+        };
+
         function checkApp() {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             let scheme, storeURL;
@@ -42,9 +51,20 @@
             if (/android/i.test(userAgent)) {
                 window.location.replace('intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app;package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end');
             } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
-                window.location.replace('intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app;package=com.finishyourlap.epi;S.browser_fallback_url=https://apps.apple.com/kr/app/wavve-웨이브/id987782077;end');
-                scheme = "epiapp://coruscating-sprite-19aa7b.netlify.app"; // Replace with your iOS app's custom URL scheme
-                storeURL = "itms-apps://itunes.apple.com/app/wavve-웨이브/id987782077?mt=8"; // Replace with your iOS app's App Store URL
+                if (isMobileSafari()){
+                    // To avoid the "protocol not supported" alert, fail must open itunes store to dl the app, add a link to your app on the store
+                    var appstorefail = "itms-apps://itunes.apple.com/app/wavve-웨이브/id987782077?mt=8";
+                    var loadedAt = +new Date;
+                    setTimeout(
+                    function() {
+                        if (+new Date - loadedAt < 2000){
+                            window.location = appstorefail;
+                        }
+                    }
+                    ,100);
+                    LaunchApp()
+
+                }
             } else {
                 alert("This feature is only supported on iOS and Android.");
                 return;
