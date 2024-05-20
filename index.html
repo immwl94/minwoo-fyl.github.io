@@ -3,30 +3,56 @@
     <title>Redirecting...</title>
 </head> -->
 
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>App Redirection</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Checker</title>
+    <script>
+        function openAppOrStore(scheme, storeURL) {
+            const startTime = Date.now();
+            
+            // Try to open the app by creating a hidden iframe
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = scheme;
+            document.body.appendChild(iframe);
+
+            // Check after 1 second if the app was opened
+            setTimeout(() => {
+                const elapsedTime = Date.now() - startTime;
+                if (elapsedTime < 1500) {
+                    // App not opened, redirect to the store
+                    window.location.href = storeURL;
+                }
+                document.body.removeChild(iframe);
+            }, 1000);
+        }
+
+        function checkApp() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            let scheme, storeURL;
+
+            if (/android/i.test(userAgent)) {
+                scheme = "epiapp://coruscating-sprite-19aa7b.netlify.app"; // Replace with your Android app's custom URL scheme
+                storeURL = "market://launch?id=kr.co.captv.pooqV2"; // Replace with your Android app's Play Store URL
+            } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
+                scheme = "epiapp://coruscating-sprite-19aa7b.netlify.app"; // Replace with your iOS app's custom URL scheme
+                storeURL = "itms-apps://itunes.apple.com/app/wavve-웨이브/id987782077?mt=8"; // Replace with your iOS app's App Store URL
+            } else {
+                alert("This feature is only supported on iOS and Android.");
+                return;
+            }
+
+            openAppOrStore(scheme, storeURL);
+        }
+
+        window.onload = function () {
+            checkApp();
+        }
+    </script>
 </head>
 <body>
-
-  <iframe style="display:none" height="0" width="0" id="loader"></iframe>
-
-  <script>(function(){
-
-    var fallbackLink = 'epiapp://coruscating-sprite-19aa7b.netlify.app';
-    var isiOS = navigator.userAgent.match('iPhone');
-        isAndroid = navigator.userAgent.match('Android');
-
-    if (isiOS || isAndroid) {
-      window.location.replace(fallbackLink);
-      fallbackLink = isAndroid ? 'market://launch?id=kr.co.captv.pooqV2' :
-                                 'itms-apps://itunes.apple.com/app/wavve-웨이브/id987782077?mt=8' ;
-    }
-    window.setTimeout(function (){ window.location.replace(fallbackLink); }, 100);
-
-  })();</script>
 </body>
 </html>
-
