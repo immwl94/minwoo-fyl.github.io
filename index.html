@@ -20,8 +20,8 @@
         isAndroid = navigator.userAgent.match('Android');
 
     if (isiOS || isAndroid) {
-      document.getElementById('loader').src = 'epiapp://coruscating-sprite-19aa7b.netlify.app';
-      fallbackLink = isAndroid ? 'market://details?id=kr.co.captv.pooqV2' :
+      window.location.replace(fallbackLink);
+      fallbackLink = isAndroid ? 'market://launch?id=kr.co.captv.pooqV2' :
                                  'itms-apps://itunes.apple.com/app/wavve-웨이브/id987782077?mt=8' ;
     }
     window.setTimeout(function (){ window.location.replace(fallbackLink); }, 100);
