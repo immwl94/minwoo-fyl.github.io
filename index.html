@@ -8,7 +8,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Checker</title>
+    <title>App Checker with Loading Indicator</title>
+    <style>
+        /* 전체 화면을 중앙에 배치하기 위한 스타일 */
+        .spinner-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 로딩 스피너 스타일 */
+        .spinner {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        /* 스피너 애니메이션 */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
     <script>
         function openAppOrStore(scheme, storeURL) {
             const startTime = Date.now();
@@ -27,7 +52,7 @@
                     window.location.href = storeURL;
                 }
                 document.body.removeChild(iframe);
-            }, 5000);
+            }, 1000);
         }
 
         function checkApp() {
@@ -54,5 +79,9 @@
     </script>
 </head>
 <body>
+    <div class="spinner-container">
+        <div class="spinner"></div>
+    </div>
 </body>
 </html>
+
