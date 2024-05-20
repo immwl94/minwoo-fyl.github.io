@@ -15,16 +15,16 @@
 
   <script>(function(){
 
-    var fallbackLink = 'https://www.naver.com';
+    var fallbackLink = 'epiapp://coruscating-sprite-19aa7b.netlify.app';
     var isiOS = navigator.userAgent.match('iPhone');
         isAndroid = navigator.userAgent.match('Android');
 
     if (isiOS || isAndroid) {
-      document.getElementById('loader').src = '0;url=epiapp://coruscating-sprite-19aa7b.netlify.app';
-      fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2' :
+      document.getElementById('loader').src = 'epiapp://coruscating-sprite-19aa7b.netlify.app';
+      fallbackLink = isAndroid ? 'market://details?id=kr.co.captv.pooqV2' :
                                  'itms-apps://itunes.apple.com/app/wavve-웨이브/id987782077?mt=8' ;
     }
-    window.setTimeout(function (){ window.location.replace(fallbackLink); }, 25);
+    window.setTimeout(function (){ window.location.replace(fallbackLink); }, 100);
 
   })();</script>
 </body>
