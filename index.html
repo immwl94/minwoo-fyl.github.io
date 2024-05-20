@@ -42,7 +42,7 @@
             if (/android/i.test(userAgent)) {
                 window.location.replace('intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app;package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end');
             } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
-                window.location.replace('epiapp://coruscating-sprite-19aa7b.netlify.app;package=com.finishyourlap.epi;S.browser_fallback_url=https://apps.apple.com/kr/app/wavve-웨이브/id987782077;end');
+                window.location.replace('intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app;package=com.finishyourlap.epi;S.browser_fallback_url=https://apps.apple.com/kr/app/wavve-웨이브/id987782077;end');
                 scheme = "epiapp://coruscating-sprite-19aa7b.netlify.app"; // Replace with your iOS app's custom URL scheme
                 storeURL = "itms-apps://itunes.apple.com/app/wavve-웨이브/id987782077?mt=8"; // Replace with your iOS app's App Store URL
             } else {
