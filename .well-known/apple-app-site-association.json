@@ -6,13 +6,9 @@
           "appIDs": [
             "U7FVDXL697.com.finishyourlap.epi"
           ],
-          "paths": [
+          "components": [
             {
-              "/": "*",
-              "?": {
-                  "screen": "?*",
-                  "code": "?*",
-              }
+              "/": "/post/*",
             }
           ]
         }
