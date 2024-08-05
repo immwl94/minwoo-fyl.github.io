@@ -41,7 +41,21 @@
         }
         //Launch the element in your app if it's already installed on the phone
         function LaunchApp() {
-            window.open("epiapp://coruscating-sprite-19aa7b.netlify.app","_self");
+            // 현재 페이지의 전체 URL을 가져옴
+            var currentUrl = new URL(window.location.href);
+
+            // 쿼리 파라미터 추출
+            var queryParams = currentUrl.search;
+
+            // 앱 스키마를 사용한 기본 URL
+            var baseUrl = "epiapp://coruscating-sprite-19aa7b.netlify.app";
+
+            // 쿼리 파라미터가 있는 경우 이를 추가
+            var fullUrl = baseUrl + queryParams;
+
+            // 딥링크 URL 열기
+            window.open(fullUrl, "_self");
+            // window.open("epiapp://coruscating-sprite-19aa7b.netlify.app","_self");
         };
 
         function checkApp() {
