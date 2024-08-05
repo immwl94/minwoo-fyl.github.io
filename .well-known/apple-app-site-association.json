@@ -8,10 +8,13 @@
           ],
           "components": [
             {
-              "/": "/post/*",
+              "/": "*",
             }
           ]
         }
       ]
+    },
+    "webcredentials": {
+        "apps": ["U7FVDXL697.com.finishyourlap.epi"]
     }
-  }
+}
