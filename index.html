@@ -47,11 +47,14 @@
             // 쿼리 파라미터 추출
             var queryParams = currentUrl.search;
 
+            // Path Parameters 추출
+            var pathParams = currentUrl.pathname;
+
             // 앱 스키마를 사용한 기본 URL
             var baseUrl = "epiapp://coruscating-sprite-19aa7b.netlify.app";
 
             // 쿼리 파라미터가 있는 경우 이를 추가
-            var fullUrl = baseUrl + queryParams;
+            var fullUrl = baseUrl + queryParams + pathParams;
 
             // 딥링크 URL 열기
             window.open(fullUrl, "_self");
