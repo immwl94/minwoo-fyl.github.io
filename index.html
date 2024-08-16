@@ -63,6 +63,21 @@
         };
 
         function checkApp() {
+             // 현재 페이지의 전체 URL을 가져옴
+             var currentUrl = new URL(window.location.href);
+
+// 쿼리 파라미터 추출
+var queryParams = currentUrl.search;
+
+// Path Parameters 추출
+var pathParams = currentUrl.pathname;
+
+// 앱 스키마를 사용한 기본 URL
+var baseUrl = "epiapp://coruscating-sprite-19aa7b.netlify.app";
+
+// 쿼리 파라미터가 있는 경우 이를 추가
+var fullUrl = baseUrl + queryParams + pathParams;
+console.log(`iOS 딥링크 ${fullUrl}`);
             var currentUrl = new URL(window.location.href);
             const extractedPath = new URL(currentUrl).pathname;  // 앞의 '/' 제거
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
