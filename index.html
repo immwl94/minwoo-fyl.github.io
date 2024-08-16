@@ -59,7 +59,6 @@
             // 딥링크 URL 열기
             // window.open(fullUrl, "_self");
             window.open(currentUrl, "_self");
-            // window.open("epiapp://coruscating-sprite-19aa7b.netlify.app","_self");
         };
 
         function checkApp() {
@@ -67,9 +66,9 @@
             let scheme, storeURL;
 
             if (/android/i.test(userAgent)) {
-                const extractedPath = new URL(url).pathname.substring(1);
+                const extractedPath = new URL(url).pathname.substring(1);  // 앞의 '/' 제거
+                window.location.replace('intent://coruscating-sprite-19aa7b.netlify.app/${extractedPath}/#Intent;scheme=https;package=com.instagram.android;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end');
                 // window.location.replace('intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app;package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end');
-                const intentUrl = `intent://${extractedPath}#Intent;scheme=https;package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`;
             } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
                 if (isMobileSafari()){
                     // To avoid the "protocol not supported" alert, fail must open itunes store to dl the app, add a link to your app on the store
