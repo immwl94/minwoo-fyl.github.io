@@ -63,9 +63,11 @@
             const extractedPath = new URL(currentUrl).pathname;  // 앞의 '/' 제거
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             let scheme, storeURL;
+
+            console.log(`extractedPath ${extractedPath}`);
+            const encodedPath = encodeURIComponent(extractedPath);
+            console.log(`encodedPath ${encodedPath}`);
             if (/android/i.test(userAgent)) {
-                const encodedPath = encodeURIComponent(extractedPath);
-                console.log(`encodedPath ${encodedPath}`);
                 // window.location.replace(`intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app${extractedPath};package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`);
                 window.open(`intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app${extractedPath};package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`);
             } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
