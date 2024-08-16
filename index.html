@@ -57,8 +57,8 @@
             var fullUrl = baseUrl + queryParams + pathParams;
 
             // 딥링크 URL 열기
-            // window.open(fullUrl, "_self");
-            window.location.replace(currentUrl);
+            window.open(fullUrl, "_self");
+            // window.location.replace(currentUrl);
             // window.open(currentUrl, "_self");
         };
 
@@ -73,8 +73,8 @@
                 const extractedPath = encodeURIComponent(new URL(currentUrl).pathname);  // 앞의 '/' 제거
                 console.log('연결333 ${extractedPath}');
 
-                console.log('연결할 내용 => intent://coruscating-sprite-19aa7b.netlify.app/${extractedPath}/#Intent;package=com.finishyourlap.epi;scheme=https;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end')
-                window.location.replace(`intent://coruscating-sprite-19aa7b.netlify.app/${extractedPath};#Intent;package=com.finishyourlap.epi;scheme=https;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`);
+                console.log(`연결할 내용 => intent://coruscating-sprite-19aa7b.netlify.app/${extractedPath}/#Intent;package=com.finishyourlap.epi;scheme=https;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`)
+                window.location.replace(`intent://coruscating-sprite-19aa7b.netlify.app/${extractedPath}/#Intent;package=com.finishyourlap.epi;scheme=https;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`);
                 // window.location.replace('intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app;package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end');
             } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
                 if (isMobileSafari()){
