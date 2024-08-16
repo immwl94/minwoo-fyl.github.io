@@ -64,7 +64,7 @@
 
         function checkApp() {
             var currentUrl = new URL(window.location.href);
-            const extractedPath = URL(currentUrl).pathname;  // 앞의 '/' 제거
+            const extractedPath = new URL(currentUrl).pathname;  // 앞의 '/' 제거
             console.log(`연결111 ${currentUrl}`);
             console.log(`연결222 ${extractedPath}`);
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
