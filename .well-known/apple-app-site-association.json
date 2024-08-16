@@ -6,7 +6,7 @@
           "appIDs": [
             "U7FVDXL697.com.finishyourlap.epi"
           ],
-          "paths": ["/post_detail/*"]
+          "paths": ["/deep_link/*"]
         }
       ]
     },
