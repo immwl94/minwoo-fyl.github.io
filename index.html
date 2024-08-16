@@ -57,21 +57,18 @@
             var fullUrl = baseUrl + queryParams + pathParams;
 
             // 딥링크 URL 열기
-            window.open(fullUrl, "_self");
-            // window.location.replace(currentUrl);
+            // window.open(fullUrl, "_self");
+            window.location.replace(currentUrl);
             // window.open(currentUrl, "_self");
         };
 
         function checkApp() {
             var currentUrl = new URL(window.location.href);
             const extractedPath = new URL(currentUrl).pathname;  // 앞의 '/' 제거
-            console.log(`연결111 ${currentUrl}`);
-            console.log(`연결222 ${extractedPath}`);
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             let scheme, storeURL;
 
             if (/android/i.test(userAgent)) {
-                console.log('연결333 isAndroid');
                 window.location.replace(`intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app${extractedPath};package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`);
             } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
                 if (isMobileSafari()){
@@ -95,8 +92,6 @@
         }
 
         window.onload = function () {
-            console.log('연결000');
-
             checkApp();
         }
     </script>
