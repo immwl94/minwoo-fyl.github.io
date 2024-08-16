@@ -63,6 +63,7 @@
         };
 
         function checkApp() {
+            console.log('연결111');
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             let scheme, storeURL;
 
@@ -93,6 +94,8 @@
         }
 
         window.onload = function () {
+            console.log('연결000');
+
             checkApp();
         }
     </script>
