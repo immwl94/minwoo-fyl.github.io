@@ -71,11 +71,7 @@
             if (/android/i.test(userAgent)) {
                 console.log('연결222 isAndroid');
                 const extractedPath = encodeURIComponent(new URL(currentUrl).pathname);  // 앞의 '/' 제거
-                console.log('연결333 ${extractedPath}');
-
-                console.log(`연결할 내용 => intent://coruscating-sprite-19aa7b.netlify.app/${extractedPath}/#Intent;package=com.finishyourlap.epi;scheme=https;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`)
-                window.location.replace(`intent://coruscating-sprite-19aa7b.netlify.app/${extractedPath}/#Intent;package=com.finishyourlap.epi;scheme=https;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`);
-                // window.location.replace('intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app;package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end');
+                window.location.replace(`intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app/${extractedPath};package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`);
             } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
                 if (isMobileSafari()){
                     // To avoid the "protocol not supported" alert, fail must open itunes store to dl the app, add a link to your app on the store
