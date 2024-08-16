@@ -64,12 +64,12 @@
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             let scheme, storeURL;
 
-            console.log(`extractedPath ${extractedPath}`);
-            const encodedPath = encodeURIComponent(extractedPath);
-            console.log(`encodedPath ${encodedPath}`);
+            console.log(`원인? ${`intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app${extractedPath};package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`}`);
+
             if (/android/i.test(userAgent)) {
                 // window.location.replace(`intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app${extractedPath};package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`);
                 window.open(`intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app${extractedPath};package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`);
+
             } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
                 if (isMobileSafari()){
                     // To avoid the "protocol not supported" alert, fail must open itunes store to dl the app, add a link to your app on the store
