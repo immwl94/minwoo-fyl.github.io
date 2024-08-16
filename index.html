@@ -1,7 +1,4 @@
-<!-- <head>
-    <meta http-equiv="refresh" content="0;url=epiapp://coruscating-sprite-19aa7b.netlify.app?screen=post&type=all&&postId=1" />     
-    <title>Redirecting...</title>
-</head> -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,26 +59,13 @@
 
         function checkApp() {
              // 현재 페이지의 전체 URL을 가져옴
-             var currentUrl = new URL(window.location.href);
-
-// 쿼리 파라미터 추출
-var queryParams = currentUrl.search;
-
-// Path Parameters 추출
-var pathParams = currentUrl.pathname;
-
-// 앱 스키마를 사용한 기본 URL
-var baseUrl = "epiapp://coruscating-sprite-19aa7b.netlify.app";
-
-// 쿼리 파라미터가 있는 경우 이를 추가
-var fullUrl = baseUrl + queryParams + pathParams;
-console.log(`iOS 딥링크 ${fullUrl}`);
             var currentUrl = new URL(window.location.href);
             const extractedPath = new URL(currentUrl).pathname;  // 앞의 '/' 제거
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             let scheme, storeURL;
-
+            console.log(`Android 로그 ${`intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app${extractedPath};package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`}`);
             if (/android/i.test(userAgent)) {
+                
                 window.location.replace(`intent:#Intent;scheme=epiapp://coruscating-sprite-19aa7b.netlify.app${extractedPath};package=com.finishyourlap.epi;S.browser_fallback_url=https://play.google.com/store/apps/details?id=kr.co.captv.pooqV2;end`);
             } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
                 if (isMobileSafari()){
@@ -115,86 +99,4 @@ console.log(`iOS 딥링크 ${fullUrl}`);
     </div>
 </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Checker with Loading Indicator</title>
-    <style>
-        /* 전체 화면을 중앙에 배치하기 위한 스타일 */
-        .spinner-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        /* 로딩 스피너 스타일 */
-        .spinner {
-            border: 16px solid #f3f3f3; /* Light grey */
-            border-top: 16px solid #dbff01; /* Blue */
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 2s linear infinite;
-        }
-
-        /* 스피너 애니메이션 */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-    <script>
-        function openAppOrStore(scheme, storeURL) {
-            const startTime = Date.now();
-            
-            // Try to open the app by creating a hidden iframe
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = scheme;
-            document.body.appendChild(iframe);
-
-            // Check after 1 second if the app was opened
-            setTimeout(() => {
-                const elapsedTime = Date.now() - startTime;
-                if (elapsedTime < 1500) {
-                    // App not opened, redirect to the store
-                    window.location.href = storeURL;
-                }
-                document.body.removeChild(iframe);
-            }, 1000);
-        }
-
-        function checkApp() {
-            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            let scheme, storeURL;
-
-            if (/android/i.test(userAgent)) {
-                scheme = "epiapp://coruscating-sprite-19aa7b.netlify.app"; // Replace with your Android app's custom URL scheme
-                storeURL = "market://launch?id=kr.co.captv.pooqV2"; // Replace with your Android app's Play Store URL
-            } else if (/iPad|iPhone/.test(userAgent) && !window.MSStream) {
-                scheme = "epiapp://coruscating-sprite-19aa7b.netlify.app"; // Replace with your iOS app's custom URL scheme
-                storeURL = "itms-apps://itunes.apple.com/app/wavve-웨이브/id987782077?mt=8"; // Replace with your iOS app's App Store URL
-            } else {
-                alert("This feature is only supported on iOS and Android.");
-                return;
-            }
-
-            openAppOrStore(scheme, storeURL);
-        }
-
-        window.onload = function () {
-            checkApp();
-        }
-    </script>
-</head>
-<body>
-    <div class="spinner-container">
-        <div class="spinner"></div>
-    </div>
-</body>
-</html> -->
 
