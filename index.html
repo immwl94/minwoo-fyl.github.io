@@ -58,7 +58,8 @@
 
             // 딥링크 URL 열기
             // window.open(fullUrl, "_self");
-            window.open(currentUrl, "_self");
+            window.location.replace(currentUrl);
+            // window.open(currentUrl, "_self");
         };
 
         function checkApp() {
